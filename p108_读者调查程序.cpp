@@ -14,12 +14,16 @@ int main(int argc, char* argv[])
 	{
 		case 1;
 			cout<<"您是通过搜索引擎得知本书的。"<<endl;
+			break;
 		case 2:
 			cout<<"您是通过朋友介绍得知本书的。"<<endl;
+			break;
 		case 3:
 			cout<<"您是通过书店得知本书的。"<<endl;
+			break;
 		case 4:
 			cout<<"您是通过其他途径得知本书的。"<<endl;
+			break;
 		default:
 			cout<<"错误的选择！请输入数字 1~4 做出选择。"<<endl;
 	}
