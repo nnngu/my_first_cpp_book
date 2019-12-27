@@ -1,3 +1,4 @@
+#include <string.h>
 // 键盘类
 struct Keyboard
 {
