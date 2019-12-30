@@ -21,5 +21,11 @@ public:
 	double GetAverSalary(void);
 
 // 工资管理系统的属性
-	
-}
+// 因为这些属性仅供工资管理系统自己使用，所以访问级别为private
+private:
+	// 当前员工总数
+	int m_nCount;	
+	// 用于保存所有员工对象
+	// 这里将员工对象的指针保存到数组中，通过指针访问员工对象
+	Emplyee* m_arrEmplyee[MAX_COUNT];
+};
