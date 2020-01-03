@@ -12,6 +12,10 @@ catch(char* pMsg)
 	// 这里仅仅是输出错误信息
 	cout<<"程序运行发生异常："<<pMsg<<endl;
 }
+finally:
+{
+	// 对异常的最终处理
+}
 
 
 // 除法函数
