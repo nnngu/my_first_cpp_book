@@ -11,10 +11,36 @@
 <unordered_map>		 |		|作为映射容器，map 和 multimap 由来已久，其底层由红黑树实现，
 <unordered_multimap> |		|而 unorderd_map 和 unordered_multimap 是最新的 C++0x 标准新添加入 STL 的映射容器，其底层由哈希表实现
 ------------------------------------------
-<set>				 |		|
-<multiset>			 | std	|
-<unordered_set>		 |		|
-<unordered_multiset> |		|
+<set>				 |		|集合容器，由节点组成的红黑树，每个节点都包含一个元素，
+<multiset>			 | std	|节点之间以某种作用于元素对的谓词排列，没有两个不同的元素能够拥有相同的次序。
+<unordered_set>		 |		|其中，unordered_set和 unordered_multiset 是
+<unordered_multiset> |		|C++0x 标准新加入 STL 中的集合容器，其底层由哈希表实现
 ------------------------------------------
+<algorithm>			 | std  |它是所有 STL 头文件中最大的一个(尽管它很好理解)，它是由很多模板函数组成的，
+				     |      |他们相互独立构成 STL 中的通用算法，包括比较、交换、查找、排序等
+------------------------------------------
+<functional>		std		 定义了一些模板类，用以声明函数对象
+<string>			std		 字符串类
+<regex>				std		 正则表达式，用于对字符串进行处理
+<memory>			std		 其中定义了跟内存操作相关的组件，例如智能指针等
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
