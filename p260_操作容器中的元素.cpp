@@ -13,3 +13,13 @@ do
 	vecSalary.push_back(nInput);
 } while(true);
 
+
+// 向 vector 容器的开始位置插入一个数据
+vecSalary.insert(vecSalary.begin(), 4999);
+// 删除 vector 容器中的前三个数据
+vecSalary.erase(vecSalary.begin(), vecSalary.begin() + 3);
+// 清空 vector 容器中的所有数据
+vecSalary.empty();
+
+
+
