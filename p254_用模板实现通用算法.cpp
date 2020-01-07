@@ -76,6 +76,31 @@ T actioncontainer<T>::redo()
 
 
 
+// 使用上面定义的类模板来处理数据
+int main(int argc, char* argv[])
+{
+	// 定义一个int类型的动作容器
+	// 这样这个动作容器就可以容纳int类型的数据
+	actioncontainer<int> intaction;
+
+	// 向容器中添加新的动作，也就是整数
+	intaction.add(1);
+	intaction.add(2);
+	intaction.add(3);
+	intaction.add(4);
+
+	// 撤销上一步动作
+	// 这时，nUndo的值为4
+	int nUndo = intaction.undo();
+	// 再次撤销上一步动作，nUndo的值为3
+	nUndo = intaction.undo();
+	// 恢复上一步动作，nRedo的值为3
+	int nRedo = intaction.redo();
+	// 再次恢复上一步动作，nRedo的值为4
+	nRedo = intaction.redo();
+
+	return 0;
+}
 
 
 
