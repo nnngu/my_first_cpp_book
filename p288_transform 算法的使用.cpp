@@ -27,5 +27,47 @@ transform(vecScoreMath.begin(), vecScoreMath.end(),
 
 
 
+/*
+学生的数学成绩和英语成绩分别保存在两个容器中，
+现在班主任要将两个成绩总和起来，看看学生的综合成绩
+*/
+// 定义移动数据过程中的操作函数
+// 这里，将两个分数相加起来作为函数返回值返回
+int add(int nScoreMath, int nScoreEng)
+{
+	return nScoreMath + nScoreEng;
+}
+
+// 保存学生分科成绩的容器
+vector<int> vecScoreMath;
+vector<int> vecScoreEng;
+// 将分数保存到容器中
+
+// 定义保存综合成绩的容器
+vector<int> vecScore;
+// 改变容器的容量，让它有足够的空间保存结果
+vecScore.resize(vecScoreMath.size());
+// 将 vecScoreMath 和 vecScoreEng 容器中的成绩相加，
+// 保存到结果容器 vecScore 中
+transform(vecScoreMath.begin(), vecScoreMath.end(),
+		  vecScoreEng.begin(), 
+		  vecScore.begin(), 
+		  add);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
