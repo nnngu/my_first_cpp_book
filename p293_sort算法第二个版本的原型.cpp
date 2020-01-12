@@ -19,6 +19,16 @@ sort(vecRect.begin(), vecRect.end(), sortbyH);
 
 
 
+// 让 Rect 对象按照宽进行排序
+// 定义新的比较函数，实现新的比较规则
+bool sortbyW(Rect rect1, Rect rect2)
+{
+	return rect1.m_fW < rect2.m_fW;
+}
+// 在 sort() 中使用新的比较函数，实现新的比较规则
+sort(vecRect.begin(), vecRect.end(), sortbyW);
+
+
 
 
 
