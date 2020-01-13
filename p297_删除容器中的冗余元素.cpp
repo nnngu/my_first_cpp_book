@@ -12,7 +12,7 @@ vecStu.push_back(st3);
 // STL 瘦身大法第一步：排序
 sort(vecStu.begin(), vecStu.end(), sortbyHeight);
 
-// 第二步：删除容器中的冗余元素
+// 第二步：删除容器中的冗余元素，需要重载Student类的 operator == 运算符
 vector<Student>::iterator it = unique(vecStu.begin(), vecStu.end());
 
 // 第三步：删除容器末尾遗留的多余元素
