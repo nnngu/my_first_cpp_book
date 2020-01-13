@@ -20,10 +20,19 @@ public:
 	{
 		return m_nHeight;
 	}
+	string GetName()
+	{
+		return m_strName;
+	}
 	// 向屏幕输出，报告名字和身高
 	void ReportName()
 	{
 		cout<<"姓名："<<m_strName<<"\t 身高："<<endl;
+	}
+public:
+	bool operator == (Student st)
+	{
+		return m_strName == st.GetName() && m_nHeight == st.GetHeight();
 	}
 	// 对象的属性
 private:
