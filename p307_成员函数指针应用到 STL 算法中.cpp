@@ -19,7 +19,10 @@ string strFindName = "Jiawei"; // 要找的名字
 auto it = find_if(vecStu.begin(), vecStu.end(),
 	bind2nd(mem_fun_ref(&Student::isnamed), strFindName));
 // 如果找到符合条件的对象，则输出查找结果
-
+if (it != vecStu.end())
+{
+	cout<<"找到了名字为"<<strFindName<<"的Student对象"<<endl;
+}
 
 
 
