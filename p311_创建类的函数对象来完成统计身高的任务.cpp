@@ -9,6 +9,40 @@ cout<<ah.GetCount()<<"个学生的平均身高是："<<ah.GetAverageHeight()<<en
 
 
 
+class AverageHeight
+{
+	// ...
+	// 定义类型转换函数
+	// 将函数对象转换为 float 类型，直接返回计算结果
+	operator float()
+	{
+		return GetAverageHeight();
+	}
+}
+
+// 直接从 for_each()算法获得计算结果
+float fAH = for_each( vecStu.begin(), vecStu.end(), ah() );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

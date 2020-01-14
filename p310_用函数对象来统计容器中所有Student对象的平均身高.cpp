@@ -19,6 +19,13 @@ public:
 		++m_nCount;
 	}
 
+	// 定义类型转换函数
+	// 将函数对象转换为 float 类型，直接返回计算结果
+	operator float()
+	{
+		return GetAverageHeight();
+	}
+
 	// 接口函数，获得所有统计过的Student对象的平均身高
 	float GetAverageHeight()
 	{
