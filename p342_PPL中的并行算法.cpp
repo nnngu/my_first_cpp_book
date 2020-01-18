@@ -27,6 +27,20 @@ paraller_for_each(vec.begin(), vec.end(),
 
 
 
+// 3、parallel_invoke 算法
+// 并行执行任务
+parallel_invoke(
+		[=]{for (int i = 0; i < 100; ++i) // 任务 1：输出 0 到 100 的整数
+			{
+				cout<<i<<endl;
+			}},
+		[=]{for (int i = 0; i < 10; ++i) // 任务 2：输出 10 个空格
+			{
+				cout<<" "<<i<<endl;
+			}}
+	);
+
+
 
 
 
