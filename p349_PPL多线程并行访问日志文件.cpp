@@ -34,6 +34,30 @@ public:
 	}
 	// 因为需要对容器中的日志进行排序，
 	// 所以这里重载日志类的"<"运算符
+	bool operator < (LogMessage m)
+	{
+		// 以日志的时间先后顺序排序
+		return m_tmTime < m.getLogTime() ? true : false;
+	}
+private:
+	// 日志类的属性
+	string m_strMsg; // 日志内容
+	time_t m_tmTime; // 日志时间
+};
+
+// 日志系统类
+// 由这个类进行日志的记录和输出
+class LogSystem
+{
+public:
+	// 记录日志的成员函数
+	void log(string strLog)
+	{
+		// 将日志保存到容器中
+		m_vecMsg.push_back(LogMessage(strLog));
+	}
+	// 将另外一个日志系统的日志合并到
+	// 当前日志系统的日志中
 	
 }
 
