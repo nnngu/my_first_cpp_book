@@ -125,8 +125,42 @@ public:
 	// 然后返回合并完成后的日志系统对象
 	LogSystem operator () (LogSystem& a, LogSystem& b)
 	{
-		
+		// 调用日志系统本身的成员函数进行合并
+		return a.combine(b);
 	}
+};
+
+int main(int argc, char* argv[])
+{
+	// 使用 combinable<T>模板类包装日志系统类 LogSystem，
+	// 创建并行对象 log
+	combinable<LogSystem> logsys;
+	// 模拟多个线程同时访问并行对象，记录日志
+	auto logthread1 = make_task([&]{
+		// 访问并行对象 log 的本地副本记录日志
+		logsys.local().log("线程 1 启动");
+		// 执行任务...
+		logsys.local().log("线程 1 结束");
+	});
+
+	auto logthread2 = make_task([&]{
+		logsys.local().log("线程 2 启动");
+		// 执行任务...
+		logsys.local().log("线程 2 结束");
+	});
+
+	// 并行地执行多项任务
+	task_group tg;
+	tg.run(logthread1);
+	tg.run_and_wait(logthread2);
+
+	// 合并并行对象的多个本地副本，得到最终结果
+	LogSystem finallog = logsys.combine(combineLog());
+	// 将结果输出到屏幕和日志文件
+	finallog.output();
+	finallog.output("log.txt");
+
+	return 0;
 }
 
 
