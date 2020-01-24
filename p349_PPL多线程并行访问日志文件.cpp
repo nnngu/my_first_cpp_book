@@ -58,7 +58,75 @@ public:
 	}
 	// 将另外一个日志系统的日志合并到
 	// 当前日志系统的日志中
-	
+	LogSystem combine(const LogSystem& other)
+	{
+		// 获取另外一个日志系统保存日志记录的容器
+		vector<LogMessage> omsg = other.getMsg();
+
+		// 合并两个容器
+		for(auto it = omsg.begin(); it != omsg.end(); ++it)
+			m_vecMsg.push_back(*it);
+
+		// 对合并后的日志记录重新排序
+		sort(m_vecMsg.begin(), m_vecMsg.end());
+
+		// 返回合并后的日志系统
+		return *this;
+	}
+
+	// 获得保存日志记录的 vector 容器
+	vector<LogMessage> getMsg() const
+	{
+		return m_vecMsg;
+	}
+
+	// 将日志输出到屏幕和日志文件
+	// 输出到屏幕
+	void output()
+	{
+		// 利用 for_each()算法和 Lambda 表达式，
+		// 逐个输出 vector 容器中的日志记录
+		for_each(m_vecMsg.begin(), m_vecMsg.end(), 
+			[](LogMessage msg) {
+				time_t tm = msg.getLogTime();
+				cout<<ctime(&tm)<<msg.getMsg()<<endl;
+			});
+	}
+
+	// 输出到日志文件
+	void output(string strFileName)
+	{
+		// 创建并打开日志文件
+		ofstream of(strFileName);
+
+		if (of.is_open())
+		{
+			// 将日志记录输出到文件
+			for_each(m_vecMsg.begin(), m_vecMsg.end(),
+				[&](LogMessage msg) {
+					time_t tm = msg.getLogTime();
+					of<<ctime(&tm)<<msg.getMsg()<<endl;
+				});
+			// 关闭文件
+			of.close();
+		}
+	}
+
+private:
+	// 保存所有日志记录的 vector 容器
+	vector<LogMessage> m_vecMsg;
+};
+
+// 用于合并日志系统并行对象的函数对象
+class combineLog
+{
+public:
+	// 重载"()"操作符，它接受两个需要合并的日志系统对象，
+	// 然后返回合并完成后的日志系统对象
+	LogSystem operator () (LogSystem& a, LogSystem& b)
+	{
+		
+	}
 }
 
 
