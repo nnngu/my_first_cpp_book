@@ -9,4 +9,52 @@
 class Student
 {
 	// 声明"<<"和">>"运算符为友元
+	friend ostream& operator<< (ostream& o, const Student& st);
+	friend istream& operator>> (istream& i, Student& st);
+	// ...
+
+private:
+	string m_strName; // 需要输入/输出的成员属性
+};
+
+// 重载"<<"运算符，实现 Student 类的输出
+ostream& operator<< (ostream& o, const Student& st)
+{
+	// 输出 Student 对象的成员属性
+	return o << st.m_strName;
 }
+// 重载">>"运算符，实现 Student 类的输入
+istream& operator>> (istream& i, Student& st)
+{
+	// 输入 Student 对象的成员属性
+	return i >> st.m_strName;
+}
+
+int main(int argc, char* argv[])
+{
+	Student stChen;
+	// 从屏幕输入 Student 对象
+	cin>>stChen;
+	// 将 Student 对象输出到屏幕
+	cout<<stChen<<endl;
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
